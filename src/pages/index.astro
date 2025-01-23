@@ -1,16 +1,59 @@
 ---
-
+import Card from "@components/Card";
+import "@styles/global.css";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1 class="font-bold text-red-400">Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <div
+      class="bg-simple-white w-[100%] h-[100vh] overflow-y-scroll"
+    >
+      <section class="col-span-12 h-[100vh] bg-blue-200 text-simple-white">
+        <span
+          class="absolute text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl w-[100%] mt-36 animate-appear"
+        >
+          HUY PHAM BLOG
+          <p class="text-sm">Scroll down</p>
+          <div class="div flex justify-center">
+            <video src="/scrolldown.webm" autoplay muted loop></video>
+          </div>
+        </span>
+
+        <img src="/background.webp" />
+      </section>
+
+      <div class="max-w-[100%] sm:max-w-[520px] md:max-w-[680px] lg:max-w-[960px] mx-auto pt-10">
+        <section class="grid-wrapper col-span-12 gap-2">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </section>
+      </div>
+    </div>
+    <!-- /Close tag .scroll-wrapper -->
+  </body>
+  <script>
+	 const cards = document.querySelectorAll('.card')
+	 const obsever = new IntersectionObserver(entries => {
+		entries.forEach(e=>{
+			if (e.isIntersecting){
+				e.target.classList.add("animate-appear")
+			}
+		})
+	 }, {threshold: 0})
+	 
+	 cards.forEach(e=>{
+		obsever.observe(e)
+	 })
+  </script>
 </html>
