@@ -21,9 +21,25 @@ export default {
             opacity: 1,
           },
         },
+
+        blink: {
+          "from, to" : { "border-color": "transparent" },
+          "50%" : {"border-color": "white"}
+        },
+
+        typing: {
+          from : { width: 0 },
+          to : { width: "100%"}
+        },
+
+        "hide-typing": {
+          to : {"border-color": "transparent"}
+        }
       },
       animation: {
         appear: "appear forwards .5s ease",
+        typing: "typing 2s steps(20, end) forwards, blink .75s step-end infinite",
+        "hide-typing" : "typing 2s steps(20, end) forwards, blink .75s step-end infinite, hide-typing forwards step-end 2s"
       },
     },
     plugins: [],

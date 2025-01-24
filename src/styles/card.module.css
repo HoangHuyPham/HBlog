@@ -1,0 +1,14 @@
+.general{
+    display: grid;
+    grid-template-rows: repeat(12, minmax(0, 1fr));
+    cursor: pointer;
+}
+
+.ellipsis_overflow{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    vertical-align: baseline;
+}

@@ -1,5 +1,6 @@
 ---
-import Card from "@components/Card";
+import Card from "@components/Card.astro";
+import Typing from "@components/Typing.astro";
 import "@styles/global.css";
 ---
 
@@ -13,13 +14,15 @@ import "@styles/global.css";
   </head>
   <body>
     <div
-      class="bg-simple-white w-[100%] h-[100vh] overflow-y-scroll"
+      class="relative bg-simple-white text-simple-black w-[100%]"
     >
-      <section class="col-span-12 h-[100vh] bg-blue-200 text-simple-white">
+      <section class="col-span-12 h-[100vh] bg-blue-200 text-simple-white z-0">
         <span
-          class="absolute text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl w-[100%] mt-36 animate-appear"
+          class="absolute text-center w-[100%] text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-36 animate-appear z-10"
         >
-          HUY PHAM BLOG
+          <Typing>
+            Huy Pham Blog
+          </Typing>
           <p class="text-sm">Scroll down</p>
           <div class="div flex justify-center">
             <video src="/scrolldown.webm" autoplay muted loop></video>
@@ -29,14 +32,14 @@ import "@styles/global.css";
         <img src="/background.webp" />
       </section>
 
-      <div class="max-w-[100%] sm:max-w-[520px] md:max-w-[680px] lg:max-w-[960px] mx-auto pt-10">
-        <section class="grid-wrapper col-span-12 gap-2">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+      <div class="max-w-[90%] sm:max-w-[520px] md:max-w-[680px] lg:max-w-[960px] mx-auto py-10">
+        <section class="grid_wrapper col-span-12 gap-2">
+          <Card src="https://static.wixstatic.com/media/e32fd518921d4fc2a430ff518109eccd.png/v1/fill/w_1071,h_803,fp_0.50_0.50,q_95,enc_auto/e32fd518921d4fc2a430ff518109eccd.png" />
+          <Card src="https://static.wixstatic.com/media/e32fd518921d4fc2a430ff518109eccd.png/v1/fill/w_1071,h_803,fp_0.50_0.50,q_95,enc_auto/e32fd518921d4fc2a430ff518109eccd.png" />
+          <Card src="https://static.wixstatic.com/media/e32fd518921d4fc2a430ff518109eccd.png/v1/fill/w_1071,h_803,fp_0.50_0.50,q_95,enc_auto/e32fd518921d4fc2a430ff518109eccd.png" />
+          <Card src="https://static.wixstatic.com/media/e32fd518921d4fc2a430ff518109eccd.png/v1/fill/w_1071,h_803,fp_0.50_0.50,q_95,enc_auto/e32fd518921d4fc2a430ff518109eccd.png" />
+          <Card src="https://static.wixstatic.com/media/e32fd518921d4fc2a430ff518109eccd.png/v1/fill/w_1071,h_803,fp_0.50_0.50,q_95,enc_auto/e32fd518921d4fc2a430ff518109eccd.png" />
+
         </section>
       </div>
     </div>

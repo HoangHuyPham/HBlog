@@ -1,0 +1,9 @@
+.wrapper{
+    display: inline-block;
+}
+
+.general{
+    border-right: 5px solid;
+    overflow: hidden;
+    white-space: nowrap;
+}

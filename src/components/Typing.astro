@@ -1,0 +1,17 @@
+---
+import typing from "@styles/typing.module.css";
+const { hide } = Astro.props;
+---
+
+<span class={typing.wrapper}>
+  <div
+    class={typing.general +
+      " " +
+      (hide ? "animate-hide-typing" : "animate-typing") +
+      " py-[1px] sm:py-[1px] md:lg:py-[4px]"}
+  >
+    <slot />
+  </div>
+  <!-- /Close tag .general -->
+</span>
+<!-- /Close tag .wrapper -->
