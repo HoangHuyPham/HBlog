@@ -2,12 +2,14 @@
     font-family: "Roboto";
     src: url("/fonts/RobotoSerif-Regular.ttf");
     font-weight: 500;
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Roboto";
     src: url("/fonts/RobotoSerif-SemiBold.ttf");
     font-weight: 700;
+    font-display: swap;
 }
 
 * {
@@ -47,11 +49,11 @@ img{
     height: 100%;
 }
 
-.hover_img_wrapper{
-    overflow: hidden;
+a{
+    color: rgb(78, 78, 251);
 }
 
-.hover_img_wrapper img:hover{
-    scale: 1.2;
-    transition: .25s ease;
+a:hover{
+    color: rgb(38, 169, 226);
+    transition: all ease .2s;
 }

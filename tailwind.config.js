@@ -13,7 +13,7 @@ export default {
       keyframes: {
         appear: {
           from: {
-            transform: "translateY(200%)",
+            transform: "translateY(100%)",
             opacity: 0,
           },
           to: {
@@ -24,7 +24,7 @@ export default {
 
         blink: {
           "from, to" : { "border-color": "transparent" },
-          "50%" : {"border-color": "white"}
+          "50%" : {"border-color": "unset"}
         },
 
         typing: {

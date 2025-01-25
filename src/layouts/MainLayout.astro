@@ -1,0 +1,36 @@
+---
+import Typing from "@components/Typing.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="relative bg-simple-white text-simple-black w-[100%]">
+      <section class="col-span-12 h-[100vh] bg-blue-200 text-simple-black z-0">
+        <span class="absolute text-center w-[100%] text-3xl sm:text-3xl md:text-4xl lg:text-5xl mt-36 z-10">
+          <Typing> Huy Pham Blog </Typing>
+        </span>
+        <picture>
+          <source media="(max-width: 419px)" srcset="/background_mobile.webp" />
+          <source media="(min-width: 420px)" srcset="/background.webp" />
+          <img src="/background.webp" alt="Hello wordl =))" />
+        </picture>
+      </section>
+
+      <section class="max-w-[90%] sm:max-w-[520px] md:max-w-[640px] lg:max-w-[860px] mx-auto py-10">
+        <slot />
+      </section>
+
+      <section class="col-span-12 bg-blue-200 text-simple-black z-0 p-5">
+        <span>Contact: HoangHuyPham</span>
+      </section>
+    </div>
+    <!-- /Close tag .scroll-wrapper -->
+  </body>
+</html>

@@ -1,0 +1,8 @@
+.disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.current {
+    color: rgb(255, 98, 0);
+}

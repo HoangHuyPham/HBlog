@@ -1,0 +1,65 @@
+---
+import "@styles/global.css";
+import MainLayout from "@layouts/MainLayout.astro";
+import List from "@components/List";
+import Card from "@components/Card.astro";
+import Pagination from "@components/Pagination.astro";
+import moment from "moment";
+
+interface IPost {
+  title: string;
+  createdAt: string;
+  description: string;
+  view: number;
+  url: string;
+}
+
+export async function getStaticPaths() {
+  const staticPages: { params: { page: string }; props: any }[] = [];
+  try {
+    const fetchData = await fetch("https://67160f3933bc2bfe40bc344a.mockapi.io/api/v1/posts");
+    const data: IPost[] = await fetchData.json();
+
+    const pageSize = 10;
+    const totalPages = Math.ceil(data.length / pageSize);
+
+    for (let page = 1; page <= totalPages; page++) {
+      staticPages.push({
+        params: { page: page.toString() },
+        props: {
+          dataFake: {
+            data: data.slice((page - 1) * pageSize, page * pageSize),
+            page,
+            pageSize,
+            max: totalPages,
+          },
+        },
+      });
+    }
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    staticPages.push({
+      params: { page: "1" },
+      props: {
+        dataFake: {
+          data: [],
+          page: 1,
+          pageSize: 10,
+          max: 1,
+        },
+      },
+    });
+  }
+
+  return staticPages;
+}
+
+const { dataFake } = Astro.props;
+---
+
+<MainLayout>
+  <List animate client:load>
+    {dataFake?.data.map((post) => <Card title={post.title} createdAt={moment(post.createdAt).format("YYYY/MM/DD hh:mm:ss A")} view={post.view} src={post.url} />)}
+  </List>
+  <Pagination page={dataFake?.page} pageSize={dataFake?.pageSize} max={dataFake?.max} />
+</MainLayout>
