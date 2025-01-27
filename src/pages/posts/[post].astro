@@ -1,0 +1,24 @@
+---
+import "@styles/global.css";
+import PostDetailLayout from "@layouts/PostDetailLayout.astro";
+import { PostManager } from "src/helpers";
+
+export async function getStaticPaths() {
+  const posts = PostManager.getInstance().posts
+
+  return posts.map((v) => {
+    return {
+      params: {
+        post: v.id,
+      },
+      props: {
+        post: v,
+      },
+    };
+  });
+}
+
+const { post } = Astro.props;
+---
+
+<PostDetailLayout title="Post" post={post} />

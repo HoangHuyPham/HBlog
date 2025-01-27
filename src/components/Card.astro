@@ -1,11 +1,11 @@
 ---
 import card from "@styles/card.module.css";
 
-interface Props{src?: string; view?: number, title?: string, createdAt?: string}
+interface Props{id?:string, src?: string; view?: number, title?: string, createdAt?: string}
 
-const { src, view = 0, title, createdAt } = Astro.props;
+const { src, view = 0, title, createdAt, id } = Astro.props;
 ---
-<div class={card.general + " " + "card col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-6 bg-white shadow-md h-80 rounded-sm"}>
+<a href=`/posts/${id}` data-astro-prefetch="viewport" class={card.general + " " + "card col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-6 bg-white text-simple-black shadow-md h-80 rounded-sm"}>
   <span class="flex items-center row-span-2 px-2">
     <div class={card.ellipsis_overflow + " " + "inline-block"}>{title}</div>
   </span>
@@ -18,5 +18,5 @@ const { src, view = 0, title, createdAt } = Astro.props;
       <span>{view}</span>
     </span>
     <span>{createdAt}</span></span>
-</div>
+</a>
 

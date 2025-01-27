@@ -12,10 +12,10 @@ const { page, max } = Astro.props;
 
 {
     <span class="pagination flex gap-2 justify-center py-5">
-      { page - 1 >= 1  && <a class={"p-2 min-w-[50px] text-center bg-white rounded-md shadow-md"} href={"/"+(1)}>&lt;&lt;</a> || <a class={pagination.disabled + " " + "p-2 min-w-[50px] text-center bg-white rounded-md shadow-md"}>&lt;&lt;</a>}
+      { page - 1 >= 1  && <a class={"p-2 min-w-[50px] text-center bg-white rounded-md shadow-md"} href={"/"+(1)}>&lt;&lt;</a> || <div class={pagination.disabled + " " + "p-2 min-w-[50px] text-center bg-white rounded-md shadow-md"}>&lt;&lt;</div>}
       { page - 1 >= 1 && <a class={"p-2 min-w-[50px] text-center bg-white rounded-md shadow-md"} href={"/"+(page - 1)}>{page - 1}</a> }
       { max >= page && <a class={pagination.current + " " + "p-2 min-w-[50px] text-center bg-white rounded-md shadow-md"} href={"/"+(page)}>{page}</a>}
       { max >= page + 1  && <a class={"p-2 min-w-[50px] text-center bg-white rounded-md shadow-md"} href={"/"+(page + 1)}>{page + 1}</a> }
-      { max >= page + 1  && <a class={"p-2 min-w-[50px] text-center bg-white rounded-md shadow-md"} href={"/"+(max)}>&gt;&gt;</a> || <a class={pagination.disabled + " " + "p-2 min-w-[50px] text-center bg-white rounded-md shadow-md"}>&gt;&gt;</a>}
+      { max >= page + 1  && <a class={"p-2 min-w-[50px] text-center bg-white rounded-md shadow-md"} href={"/"+(max)}>&gt;&gt;</a> || <div class={pagination.disabled + " " + "p-2 min-w-[50px] text-center bg-white rounded-md shadow-md"}>&gt;&gt;</div>}
     </span>
 }

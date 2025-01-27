@@ -1,0 +1,43 @@
+---
+import type { IPost } from "src/interfaces";
+import { marked } from "marked";
+import moment from "moment";
+
+interface Props {
+  title?: string;
+  post?: IPost;
+}
+const { post } = Astro.props;
+
+const content = post?.content && marked.parse(post?.content);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{post?.title}</title>
+  </head>
+  <body>
+    <div class="p-2">
+      <div class="bg-simple-black text-simple-white max-w-[90%] min-w-[340px] sm:max-w-[520px] md:max-w-[640px] lg:max-w-[780px] mx-auto shadow-md p-5">
+        <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">{post?.title}</p>
+        <div class="flex flex-col justify-end">
+          <span class="mr-2">{moment(post?.createdAt).format("YYYY/MM/DD hh:mm:ss A")}</span>
+          <div class="flex justify-between h-6">
+            <div class="flex gap-1">
+              <img class="flex-grow-0 w-auto" src="/eye.svg" alt="eye" />
+              <div>{post?.view}</div>
+            </div>
+            <a href="/page=1">Go Home</a>
+          </div>
+        </div>
+      </div>
+      <!-- /Close tag .bg-simple-white -->
+      <div class="max-w-[90%] min-w-[340px] sm:max-w-[520px] md:max-w-[640px] lg:max-w-[780px] mx-auto shadow-md p-5 text-simple-black">
+        <article class="px-2 text-sm md:text-xl" set:html={content} />
+      </div>
+    </div>
+    <!-- /Close tag  -->
+  </body>
+</html>
