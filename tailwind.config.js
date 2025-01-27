@@ -9,6 +9,7 @@ export default {
       },
       backgroundColor: {
         "simple-white": "#f5f5f5",
+        "simple-black": "#4a4a4a",
       },
       keyframes: {
         appear: {

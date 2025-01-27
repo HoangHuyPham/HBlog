@@ -5,6 +5,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [react(), tailwind()],
   redirects: {
-    '/': '/1'
-  }
+    '/': '/page=1'
+  },
+  prefetch: true
 });
